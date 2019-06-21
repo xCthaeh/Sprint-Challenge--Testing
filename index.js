@@ -37,3 +37,17 @@ let games = [
 ];
 
 let id = 5;
+
+server.get("/games", (req, res) => {
+  res.status(200).json(games);
+});
+
+server.get("/games/:id", (req, res) => {
+  const { id } = req.params;
+  let game = games.filter(game => game.id === id);
+  if (game.length === 0) {
+    res.status(404).json({ error: "Game not found." });
+  }
+  game = game[0];
+  res.status(200).json(game);
+});
