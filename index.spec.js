@@ -18,3 +18,35 @@ describe("GET [/games]", () => {
     expect(res.body.length).toBe(gameMatches.length);
   });
 });
+
+describe("POST [/games]", () => {
+  it("should return status 422 if request is missing required fields", async () => {
+    const res = await request(server)
+      .post("/games")
+      .send({ title: "" });
+    expect(res.status).toBe(422);
+  });
+
+  it("should return status 201 if request is valid", async () => {
+    const game = {
+      title: "Oblivion",
+      genre: "RPG"
+    };
+    const res = await request(server)
+      .post("/games")
+      .send(game)
+      .expect(201);
+  });
+
+  it("should return with an id", async () => {
+    const game = {
+      title: "Halo 3",
+      genre: "FPS",
+      releaseYear: "2007"
+    };
+    const res = await request(server)
+      .post("/games")
+      .send(game);
+    expect(res.body[1].id).toEqual(2);
+  });
+});
