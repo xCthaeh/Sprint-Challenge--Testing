@@ -51,3 +51,17 @@ server.get("/games/:id", (req, res) => {
   game = game[0];
   res.status(200).json(game);
 });
+
+server.post("/games", (req, res) => {
+  const game = req.body;
+  if (!game.title || !game.genre) {
+    return res
+      .status(422)
+      .json({ error: "Game must have a title and a genre." });
+  }
+  game.id = ++id;
+  games.push(game);
+  res.status(201).json(games);
+});
+
+module.exports = server;
