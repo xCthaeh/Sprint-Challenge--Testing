@@ -25,8 +25,18 @@ In this challenge use `Test Driven Development` to build a RESTful API using Nod
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
+
+'It' refers to each individual test within the describe block(a unique test), while describe defines a block in which one or multiple tests will be created. Describes best use case is when you are referring to testing a component as a whole, it is good for testing individual pieces of a component.
+
+
 1. What is the point of `Test Driven Development`? What do you think about this approach?
+
+    -TDD is all about writing tests before writing the actual code, forcing you to think about how you want things set up and then develop based around those tests. It allows you to build something with easily defined parameters and functionality. I believe that this is a great approach for a more experienced developer, but I think a mix between TDD and Behavior driven testing would also be beneficial, where you have to contemplate and define beforehand, and then create tests around the expected behaviors, giving a broader range of more thoroughly fleshed out tests based on expected user behaviors.
+
 1. Mention three types of automated tests.
+
+Integration, Unit, End-to-end
+
 
 ## Project Set Up
 
@@ -41,7 +51,7 @@ Your finished project must include all of the following requirements:
 
 - [x] Use `jest` and `supertest` to write the tests.
 - [x] Write the **tests BEFORE** writing the route handlers.
-- [ ] Your API must have both `POST` and `GET` endpoints for `/games`.
+- [x] Your API must have both `POST` and `GET` endpoints for `/games`.
 - [x] Write a **minimum** of three tests per endpoint.
 
 Below is a product specification covering the requirements for your endpoints.
